@@ -28,3 +28,9 @@ jobs:
     - name: Install markdownlint
       run: |
         npm install -g markdownlint-cli
+        
+    - name: Run validate Doc Schema
+      run: python check.py
+
+    - name: Run validate Doc MD lint
+      run: python lint
