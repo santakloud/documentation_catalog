@@ -21,7 +21,7 @@ jobs:
         pip install jsonschema
 
     - name: Install Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'  # Usa la versión 20 de Node.js
 
@@ -33,4 +33,4 @@ jobs:
       run: python check.py
 
     - name: Run validate Doc MD lint
-      run: python lint
+      run: python lint.py
