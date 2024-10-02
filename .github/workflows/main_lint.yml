@@ -1,6 +1,6 @@
 name: Setup Ubuntu with Python and Pip
 
-on: [push]
+# on: [push]
 
 jobs:
   build:
