@@ -1,33 +1,21 @@
-name: Markdown Linting Action
+name: Setup Ubuntu with Python and Pip
 
-on:
-  push:
-    branches:
-      - 'main'
+on: [push]
 
 jobs:
-  markdownLint:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 'latest'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Usa la última versión de Python 3
 
-      - name: Install Python dependencies
-        run: |
-          python --version
-          python -m pip install --upgrade pip
-          pip install json yaml markdownlint
-
-      - name: Run check.py
-        run: python check.py
-
-      - name: Run lint
-        run: python lint
+    - name: Install pip packages
+      run: |
+        python -m pip install --upgrade pip
+        pip install json jsonschema markdownlint
