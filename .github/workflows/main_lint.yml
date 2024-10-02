@@ -14,3 +14,19 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 'latest'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install json yaml markdownlint
+
+      - name: Run check.py
+        run: python check.py
+
+      - name: Run lint
+        run: python lint
