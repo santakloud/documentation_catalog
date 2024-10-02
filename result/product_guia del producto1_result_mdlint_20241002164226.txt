@@ -1,0 +1,2 @@
+Operación fallida
+docs/product_guia del producto1.md:19 MD012/no-multiple-blanks Multiple consecutive blank lines [Expected: 1; Actual: 2]

@@ -1,0 +1,5 @@
+Operación Fallida
+Missing subsection: - Monitorización in section: ## Resumen del Producto
+Missing subsection: - Releases in section: ## Resumen del Producto
+Missing subsection: - Operaciones in section: ## Resumen del Producto
+El documento tiene un % de compliance: 83.33%

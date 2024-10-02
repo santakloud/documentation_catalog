@@ -1,0 +1,3 @@
+Operación Fallida
+Missing section: ## Descripción de la API
+El documento tiene un % de compliance: 81.25%
