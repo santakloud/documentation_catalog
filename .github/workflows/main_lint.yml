@@ -16,18 +16,18 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12.6'
 
       - name: Install Python dependencies
         run: |
           python --version
-          python3 -m pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install json yaml markdownlint
 
       - name: Run check.py
-        run: python3 check.py
+        run: python check.py
 
       - name: Run lint
-        run: python3 lint
+        run: python lint
