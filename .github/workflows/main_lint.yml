@@ -1,32 +1,51 @@
-name: Markdown Linting Action
+name: Setup Ubuntu with Python and Pip
 
-on:
-  push:
-    branches:
-      - 'main'
+# on: [push]
 
 jobs:
-  markdownLint:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 'latest'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Usa la última versión de Python 3
 
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install json yaml markdownlint
+    - name: Install pip packages
+      run: |
+        python -m pip install --upgrade pip
+        pip install jsonschema
 
-      - name: Run check.py
-        run: python check.py
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'  # Usa la versión 20 de Node.js
 
+<<<<<<< HEAD
       - name: Run lint
         run: python lint.py
+=======
+    - name: Install markdownlint
+      run: |
+        npm install -g markdownlint-cli
+        
+    - name: Run validate Doc Schema
+      run: python check.py
+
+    - name: Run validate Doc MD lint
+      run: python lint.py
+
+    - name: Commit and push results
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add result/
+        git commit -m 'Add result files'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+>>>>>>> 635a54373715ffc5e86ea5b8d9ca09503e6dbd9f
