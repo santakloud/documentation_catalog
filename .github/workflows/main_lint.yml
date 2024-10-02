@@ -1,0 +1,16 @@
+name: Markdown Linting Action
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  markdownLint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
